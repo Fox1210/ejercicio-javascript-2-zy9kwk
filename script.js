@@ -17,7 +17,6 @@ function onLoad() {
   modificacion1List1();
   //modificcacion 2 de la lista1
   modificacion2List1();
-  //removeOdd
 }
 
 //anade las clases en a los elementos span

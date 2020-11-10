@@ -17,6 +17,10 @@ function onLoad() {
   modificacion1List1();
   //modificcacion 2 de la lista1
   modificacion2List1();
+  //creacion de la lsita 2 con 3 botones y las clases corespondientes
+  crearList2();
+  //añadir atibuto "disabled" al ultimo botones
+  desabilitaBtn5();
 }
 
 //anade las clases en a los elementos span
@@ -25,8 +29,8 @@ function modificacion1List1() {
   let spanSelcted = document.querySelector(".selected");
   let elementoPadre = spanSelcted.parentElement.parentElement;
   let nodeList = elementoPadre.childNodes;
-  console.log(nodeList); //mustar la lista "ul" que posee una lista de etiquetas "il"
-  console.log("*************************************");
+  // console.log(nodeList); //mustar la lista "ul" que posee una lista de etiquetas "il"
+  // console.log("*************************************");
 
   let contador = 1;
   for (var i = 0; i < nodeList.length; i++) {
@@ -40,7 +44,7 @@ function modificacion1List1() {
       contador++;
     }
   }
-  console.log("*************************************");
+  //console.log("*************************************");
 }
 //borra el ejemplo 2 y 4 de la lista 1
 function modificacion2List1() {
@@ -48,8 +52,48 @@ function modificacion2List1() {
   let spanSelcted = document.querySelector(".selected");
   let elementoPadre = spanSelcted.parentElement.parentElement;
   let nodeList = elementoPadre.childNodes;
-  console.log(nodeList); //mustar la lista "ul" que posee una lista de etiquetas "il" completa
+  // console.log(nodeList); //mustar la lista "ul" que posee una lista de etiquetas "il" completa
   nodeList[3].remove();
   nodeList[6].remove();
-  console.log(nodeList); //mustar la lista "ul" que posee una lista de etiquetas "il" una vez se ha eliminado los pares
+  // console.log(nodeList); //mustar la lista "ul" que posee una lista de etiquetas "il" una vez se ha eliminado los pares
+}
+// Crear lista2.
+function crearList2() {
+  //Nos ubicamos en la lista2
+  let list2 = document.getElementById("list2");
+  console.log(list2);
+
+  //Creamos los botones con las clases correspondientes
+  let button1 = document.createElement("BUTTON");
+  button1.classList.add("element-1");
+  button1.innerHTML = "texto ejemplo 1";
+
+  let button3 = document.createElement("BUTTON");
+  button3.classList.add("element-3");
+  button3.innerHTML = "texto ejemplo 3";
+
+  let button5 = document.createElement("BUTTON");
+  button5.classList.add("element-5");
+  button5.setAttribute("id", "btn5"); //añadimos un id que sera necesrio mas trade
+  button5.innerHTML = "texto ejemplo 5";
+
+  //Creamos li.
+  let li1 = document.createElement("LI");
+  let li3 = document.createElement("LI");
+  let li5 = document.createElement("LI");
+
+  //Agregamos los botones a las listas y las etiquetas "LI" a la etiqueta "UL"
+  li1.appendChild(button1);
+  list2.appendChild(li1);
+
+  li3.appendChild(button3);
+  list2.appendChild(li3);
+
+  li5.appendChild(button5);
+  list2.appendChild(li5);
+}
+//modifica el ultumo boton
+function desabilitaBtn5() {
+  //Nos ubicamos en la lista2
+  let btn5 = (document.getElementById("btn5").disabled = true);
 }
